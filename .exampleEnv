@@ -1,0 +1,10 @@
+#
+# An example .env file.
+# With all module used keys.
+#
+
+HANDLER = MirrorHandler
+SERVER  = SocketServer
+
+HOSTNAME = localhost
+PORT     = 80
