@@ -10,7 +10,10 @@ class testSocketServer(TestCase):
 
     def setUp(self) -> None:
         c = Config.getMinimalValidConfig({"SERVER": "SocketServer", "HOSTNAME": "localhost", "PORT": "80"})
-        self.s = SocketServer(c)
+        try:
+            self.s = SocketServer(c)
+        except PermissionError:
+            self.skipTest("Permission Error")
         self.c: Queue[SocketConnection] = Queue()
 
         self.clientConns: list[socket] = []
